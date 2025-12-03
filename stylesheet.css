@@ -94,7 +94,7 @@ a {
 }
 
 .site-header { margin-bottom: 12px; }
-.header-inner { display:flex; align-items:center; gap:18px; }
+.header-inner { display:flex; align-items:center; gap:18px; max-width:720px; margin:0 auto; }
 .name-block { display:flex; gap:18px; align-items:center; }
 .profile-img { width:120px; height:120px; border-radius:12px; object-fit:cover; }
 .name { font-size:28px; margin:0; }
@@ -113,9 +113,8 @@ a {
 .content section { margin-bottom:26px; }
 
 /* Center header and nav to match requested layout */
-.header-inner { justify-content:center; }
-.name-block { justify-content:center; }
-.top-nav { justify-content:center; }
+.header-inner { justify-content: flex-start; }
+.top-nav { justify-content:center; max-width:720px; margin:0 auto; }
 .top-nav a { padding:8px 12px; }
 
 .site-footer { margin-top:36px; color:#666; font-size:13px; }
