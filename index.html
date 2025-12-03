@@ -6,46 +6,80 @@
     <meta name="author" content="Wonseok Choi">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <!-- Use Inter first, fall back to Lato (already in stylesheet) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head>
 
   <body>
-    <div style="max-width:900px;margin:40px auto;padding:20px;">
-      <header style="display:flex;align-items:center;gap:20px;">
-        <div style="flex:1;">
-          <h1 class="name" style="margin:0;">Wonseok Choi</h1>
-          <p style="margin:6px 0 0 0;">Researcher — computer vision, instance-level matching, and applied machine learning.</p>
-          <p style="margin:10px 0 0 0;"><a href="mailto:wonseok.c@postech.ac.kr">wonseok.c@postech.ac.kr</a></p>
-        </div>
-        <div style="width:140px;flex-shrink:0;">
-          <img src="images/wonseok/wonseok_banner.png" alt="profile" style="width:100%;border-radius:50%;object-fit:cover;">
+    <div class="site-wrap">
+      <header class="site-header">
+        <div class="header-inner">
+          <div class="name-block">
+            <img class="profile-img" src="images/wonseok/wonseok_banner.png" alt="Wonseok Choi">
+            <div class="title">
+              <h1 class="name">Wonseok Choi</h1>
+              <p class="role">Researcher — computer vision, instance-level matching</p>
+              <p class="contact-inline"><a href="mailto:wonseok.c@postech.ac.kr">wonseok.c@postech.ac.kr</a> — <a href="#projects">Projects</a> — <a href="#contact">Contact</a></p>
+            </div>
+          </div>
         </div>
       </header>
 
-      <main style="margin-top:28px;">
-        <section id="about">
-          <h2>About</h2>
-          <p>Welcome — this is my personal page. I work on computer vision and instance-level matching. More details and publications will be added soon.</p>
-        </section>
+      <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-        <section id="projects" style="margin-top:18px;">
-          <h2>Projects</h2>
-          <ul style="padding-left:18px;">
-            <li>
-              <strong>Patch-wise Retrieval: A Bag of Practical Techniques for Instance-level Matching</strong>
-              <p style="margin:6px 0 12px 0;">(Placeholder) Short description of the project. Add link or PDF under <code>data/</code> when available.</p>
-            </li>
+      <main class="container">
+        <aside class="sidebar" aria-label="sidebar">
+          <h3>Quick links</h3>
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
-        </section>
+        </aside>
 
-        <section id="contact" style="margin-top:18px;">
-          <h2>Contact</h2>
-          <p>Email: <a href="mailto:wonseok.c@postech.ac.kr">wonseok.c@postech.ac.kr</a></p>
+        <section class="content">
+          <section id="about">
+            <h2>About</h2>
+            <p>Welcome — this is my personal page. I work on computer vision and instance-level matching. More details and publications will be added soon.</p>
+          </section>
+
+          <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+              <li>
+                <strong>Patch-wise Retrieval: A Bag of Practical Techniques for Instance-level Matching</strong>
+                <p>(Placeholder) Short description of the project. Add link or PDF under <code>data/</code> when available.</p>
+              </li>
+            </ul>
+          </section>
+
+          <section id="research">
+            <h2>Research</h2>
+            <p>Selected publications and research highlights will appear here. If you'd like, I can import a short list from the original content in `index.html`.</p>
+          </section>
+
+          <section id="education">
+            <h2>Education</h2>
+            <p>POSTECH — Advanced Machine Intelligence Lab (GSAI). Integrated M.S. and Ph.D. student.</p>
+          </section>
+
+          <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:wonseok.c@postech.ac.kr">wonseok.c@postech.ac.kr</a></p>
+          </section>
         </section>
       </main>
 
-      <footer style="margin-top:30px;font-size:13px;color:#666;">
-        <p>Site generated from this repository. The original content has been replaced with a minimal personal scaffold.</p>
+      <footer class="site-footer">
+        <p>Template inspired by academic personal sites. Content managed from this repository.</p>
       </footer>
     </div>
   </body>
