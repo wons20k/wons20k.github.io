@@ -14,3 +14,7 @@ body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helv
 /* Ensure BibTeX code block is left-aligned for readability */
 #bibtex-code { text-align: left; white-space: pre; overflow: auto; }
 #bibtex-code code { display: block; }
+
+/* Presentation note shown under affiliations */
+.presentation-note { margin-top: 10px; font-style: italic; color: #444; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.presentation-note .icon { color: #333; }
