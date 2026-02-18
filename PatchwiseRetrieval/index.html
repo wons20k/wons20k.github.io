@@ -69,9 +69,22 @@
         </div>
       </section>
 
+      <section class="section hero is-light" id="abstract">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Abstract</h2>
+              <div class="content has-text-justified">
+                <p>Instance-level image retrieval aims to find images containing the same object as a given query, despite variations in size, position, or appearance. To address this challenging task, we propose Patchify, a simple yet effective patch-wise retrieval framework that offers high performance, scalability, and interpretability without requiring fine-tuning. Patchify divides each database image into a small number of structured patches and performs retrieval by comparing these local features with a global query descriptor, enabling accurate and spatially grounded matching. To assess not just retrieval accuracy but also spatial correctness, we introduce LocScore, a localization-aware metric that quantifies whether the retrieved region aligns with the target object. This makes LocScore a valuable diagnostic tool for understanding and improving retrieval behavior. We conduct extensive experiments across multiple benchmarks, backbones, and region selection strategies, showing that Patchify outperforms global methods and complements state-of-the-art reranking pipelines. Furthermore, we apply Product Quantization for efficient large-scale retrieval and highlight the importance of using informative features during compression, which significantly boosts performance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section poster-section" id="motivation">
         <div class="container is-max-desktop">
-          <h2 class="section-title">Motivation and Teaser</h2>
+          <h2 class="section-title">Motivation</h2>
           <div class="figure-card">
             <a href="img/teaser.png" target="_blank" rel="noopener noreferrer">
               <img src="img/teaser.png" alt="Teaser figure showing interpretability, performance, and scalability gains." loading="eager">
@@ -104,45 +117,17 @@
         </div>
       </section>
 
-      <section class="section poster-section" id="prelim">
-        <div class="container is-max-desktop">
-          <h2 class="section-title">Preliminary Experiments</h2>
-          <div class="figure-grid two-col">
-            <figure class="figure-card">
-              <a href="img/distance_mAP.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/distance_mAP.png" alt="mAP by object distance from image center." loading="lazy">
-              </a>
-              <figcaption class="caption">mAP across distance bins from near-center to far-from-center objects.</figcaption>
-            </figure>
-            <figure class="figure-card">
-              <a href="img/distance_LocScore.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/distance_LocScore.png" alt="LocScore by object distance from image center." loading="lazy">
-              </a>
-              <figcaption class="caption">LocScore across distance bins highlights improved localization robustness.</figcaption>
-            </figure>
-            <figure class="figure-card">
-              <a href="img/area_coverage_mAP.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/area_coverage_mAP.png" alt="mAP by object size coverage bins." loading="lazy">
-              </a>
-              <figcaption class="caption">mAP by object size from smaller to larger object coverage bins.</figcaption>
-            </figure>
-            <figure class="figure-card">
-              <a href="img/area_coverage_LocScore.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/area_coverage_LocScore.png" alt="LocScore by object size coverage bins." loading="lazy">
-              </a>
-              <figcaption class="caption">LocScore by object size confirms spatial consistency of local matching.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
       <section class="section poster-section" id="locscore">
         <div class="container is-max-desktop">
           <h2 class="section-title">LocScore: Localization-Aware Metric</h2>
-          <div class="text-card">
-            <p><strong>Continuous LocScore:</strong> weighted overlap between predicted patch regions and ground-truth target regions over the ranked retrieval list.</p>
-            <p><strong>Discrete LocScore(&delta;):</strong> ratio of true positives whose IoU is above a threshold &delta;, enabling controllable localization strictness.</p>
-            <p>LocScore complements mAP by evaluating whether retrieved results are not only correct, but also spatially grounded on the target object.</p>
+          <div class="figure-card">
+            <a href="img/LocScore.png" target="_blank" rel="noopener noreferrer">
+              <img src="img/LocScore.png" alt="LocScore definitions for continuous and discrete localization-aware retrieval metrics." loading="lazy">
+            </a>
+            <ul class="feature-list">
+              <li>Continuous LocScore measures retrieval quality together with spatial awareness via IoU.</li>
+              <li>Discrete LocScore adds user controllability through thresholded localization quality.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -150,19 +135,37 @@
       <section class="section poster-section" id="results">
         <div class="container is-max-desktop">
           <h2 class="section-title">Experimental Results</h2>
+          <h3 class="subsection-title">Comparison with SOTA Methods</h3>
           <div class="figure-grid two-col">
             <figure class="figure-card">
-              <a href="img/comparison_locscore_thr2.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/comparison_locscore_thr2.png" alt="Comparison with localization boxes and LocScore thresholding." loading="lazy">
+              <a href="img/sota_global.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/sota_global.png" alt="Comparison table showing Patchify gains over global baselines on INSTRE and ILIAS." loading="lazy">
               </a>
-              <figcaption class="caption">Patchify improves local evidence alignment under localization-aware evaluation.</figcaption>
+              <figcaption class="caption">Patchify improves mAP and LocScore over global retrieval baselines on INSTRE and ILIAS.</figcaption>
             </figure>
+            <figure class="figure-card">
+              <a href="img/sota_reranking.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/sota_reranking.png" alt="Comparison table showing Patchify-enhanced performance in reranking pipelines." loading="lazy">
+              </a>
+              <figcaption class="caption">Patchify is effective as both a standalone approach and a strong first-stage representation for reranking.</figcaption>
+            </figure>
+          </div>
+
+          <h3 class="subsection-title">Memory Efficiency</h3>
+          <div class="figure-grid two-col">
             <figure class="figure-card">
               <a href="img/memory.png" target="_blank" rel="noopener noreferrer">
                 <img src="img/memory.png" alt="Memory usage comparison among baseline and Patchify variants." loading="lazy">
               </a>
               <figcaption class="caption">Patchify reaches stronger retrieval quality with lower memory overhead.</figcaption>
             </figure>
+            <div class="text-card">
+              <ul class="feature-list">
+                <li>Patchify uses a small fixed set of structured patches rather than hundreds of dense local descriptors.</li>
+                <li>Compared with reranking pipelines, Patchify provides substantially better memory scalability.</li>
+                <li>This makes Patchify practical for large-scale retrieval while retaining strong retrieval performance.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

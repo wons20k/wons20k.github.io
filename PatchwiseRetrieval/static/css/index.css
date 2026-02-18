@@ -68,6 +68,13 @@ body {
   margin-bottom: 1rem;
 }
 
+.subsection-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.8rem;
+  color: #2b2b2b;
+}
+
 .figure-card,
 .text-card {
   background: #fff;
