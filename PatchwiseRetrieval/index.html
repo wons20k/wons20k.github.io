@@ -60,9 +60,6 @@
                   </div>
                 </div>
 
-                <p class="short-overview">
-                  Patch-wise Retrieval (Patchify) improves instance-level matching by comparing local patch features between query and database images, enabling interpretable retrieval with explicit spatial grounding while remaining efficient through product quantization.
-                </p>
               </div>
             </div>
           </div>
@@ -136,16 +133,10 @@
               <h3 class="subsection-title">Comparison with SOTA Methods</h3>
               <div class="figure-grid">
                 <figure class="figure-card">
-                  <a href="img/sota_global.png" target="_blank" rel="noopener noreferrer">
-                    <img src="img/sota_global.png" alt="Comparison table showing Patchify gains over global baselines on INSTRE and ILIAS." loading="lazy">
+                  <a href="img/sota_comparison.png" target="_blank" rel="noopener noreferrer">
+                    <img src="img/sota_comparison.png" alt="Comparison with SOTA methods across global and reranking settings." loading="lazy">
                   </a>
-                  <figcaption class="caption">Patchify improves mAP and LocScore over global retrieval baselines on INSTRE and ILIAS.</figcaption>
-                </figure>
-                <figure class="figure-card">
-                  <a href="img/sota_reranking.png" target="_blank" rel="noopener noreferrer">
-                    <img src="img/sota_reranking.png" alt="Comparison table showing Patchify-enhanced performance in reranking pipelines." loading="lazy">
-                  </a>
-                  <figcaption class="caption">Patchify is effective as both a standalone approach and a strong first-stage representation for reranking.</figcaption>
+                  <figcaption class="caption">Patchify is effective as both a standalone method and a strong first-stage representation for reranking.</figcaption>
                 </figure>
               </div>
             </div>
@@ -166,8 +157,8 @@
         <div class="container is-max-desktop">
           <h2 class="section-title">Qualitative Results</h2>
           <div class="figure-card">
-            <a href="img/qualitative_results.png" target="_blank" rel="noopener noreferrer">
-              <img src="img/qualitative_results.png" alt="Qualitative retrieval examples showing robust matching for small and off-centered objects." loading="lazy">
+            <a href="img/qual.png" target="_blank" rel="noopener noreferrer">
+              <img src="img/qual.png" alt="Qualitative retrieval examples from the presentation." loading="lazy">
             </a>
             <p class="caption">Patchify retrieves correct instances even when targets are small or off-centered and clearly indicates which regions trigger the match.</p>
           </div>
@@ -177,12 +168,22 @@
       <section class="section poster-section" id="takeaways">
         <div class="container is-max-desktop">
           <h2 class="section-title">Takeaways</h2>
-          <div class="text-card">
-            <ul class="feature-list">
-              <li><strong>Patchify:</strong> an interpretable, spatially grounded retrieval framework that works in a training-free, plug-and-play manner.</li>
-              <li><strong>Patchify:</strong> scalable retrieval with low memory overhead while preserving strong matching quality.</li>
-              <li><strong>LocScore:</strong> a localization-aware evaluation metric that complements ranking-only retrieval metrics.</li>
-            </ul>
+          <div class="takeaways-grid">
+            <div class="text-card">
+              <h3 class="subsection-title">Patchify</h3>
+              <ul class="feature-list">
+                <li>Interpretable instance retrieval with explicit spatial grounding.</li>
+                <li>Training-free, plug-and-play design that can leverage stronger backbones.</li>
+                <li>Scales efficiently with low memory overhead.</li>
+              </ul>
+            </div>
+            <div class="text-card">
+              <h3 class="subsection-title">LocScore</h3>
+              <ul class="feature-list">
+                <li>Localization-aware metric that evaluates both ranking quality and spatial alignment.</li>
+                <li>Complements ranking-only metrics by revealing where the match occurs.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
