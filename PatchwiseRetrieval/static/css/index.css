@@ -1,20 +1,146 @@
-/* Minimal CSS adapted from Academic Project Page Template */
-body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#111; }
-.publication-title { font-weight:700; letter-spacing: -0.02em; }
-.publication-authors { margin-top:12px; }
-.author-block { margin-right:8px; display:inline-block; }
-.publication-links { margin-top:14px; }
-.publication-links .button { margin:6px; }
-.hero.teaser { padding-top: 0; padding-bottom: 0; }
-.image.is-3by1 img { width:100%; height:auto; object-fit:cover; border-radius:8px; box-shadow:0 12px 30px rgba(16,24,40,0.08); }
-.bibtex-header { display:flex; align-items:center; justify-content:space-between; }
-.copy-bibtex-btn { margin-left:8px; }
-@media (max-width:900px) { .image.is-3by1 { aspect-ratio: 3 / 1; } }
+:root {
+  --accent: #9a5f2d;
+  --bg-soft: #f6f1ea;
+  --text-main: #151515;
+  --line: #e3d7ca;
+}
 
-/* Ensure BibTeX code block is left-aligned for readability */
-#bibtex-code { text-align: left; white-space: pre; overflow: auto; }
-#bibtex-code code { display: block; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-main);
+  background: #fff;
+}
 
-/* Presentation note shown under affiliations */
-.presentation-note { margin-top: 10px; font-style: italic; color: #444; display: flex; align-items: center; justify-content: center; gap: 8px; }
-.presentation-note .icon { color: #333; }
+.publication-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.publication-authors {
+  margin-top: 12px;
+}
+
+.author-block {
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.presentation-note {
+  margin-top: 10px;
+  font-style: italic;
+  color: #4a4a4a;
+}
+
+.publication-links {
+  margin-top: 14px;
+}
+
+.publication-links .button {
+  margin: 6px;
+}
+
+.is-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.short-overview {
+  margin-top: 20px;
+  text-align: left;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.poster-section {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.section-title {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.figure-card,
+.text-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.figure-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.figure-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.figure-grid.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.caption {
+  margin-top: 8px;
+  color: #444;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.feature-list {
+  margin-top: 10px;
+  padding-left: 1.2rem;
+}
+
+.feature-list li {
+  margin-bottom: 0.45rem;
+}
+
+.bibtex-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copy-bibtex-btn {
+  margin-left: 8px;
+}
+
+#bibtex-code {
+  text-align: left;
+  white-space: pre;
+  overflow: auto;
+}
+
+#bibtex-code code {
+  display: block;
+}
+
+a:focus,
+button:focus {
+  outline: 3px solid #84aefc;
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .figure-grid.two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .poster-section {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+  }
+}

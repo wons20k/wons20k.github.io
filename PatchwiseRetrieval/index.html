@@ -3,27 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Patch-wise Retrieval — Wonseok Choi</title>
-
-    <!-- SEO & Social meta (basic) -->
-    <meta name="description" content="Patchify: a patch-wise retrieval framework and LocScore localization metric for instance-level image retrieval.">
+    <title>Patch-wise Retrieval: An Interpretable Instance-Level Image Matching</title>
+    <meta name="description" content="WACV 2026 project page for Patch-wise Retrieval, a training-free instance retrieval framework with localization-aware evaluation.">
     <meta name="author" content="Wonseok Choi, Sohwi Lim, Nam Hyeon-Woo, Moon Ye-Bin, Dong-Ju Jeong, Jinyoung Hwang, Tae-Hyun Oh">
-
-    <!-- Bulma (CDN) and template CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/index.css">
   </head>
   <body>
-
     <main id="main-content">
-      <!-- Hero -->
       <section class="hero">
         <div class="hero-body">
           <div class="container is-max-desktop">
             <div class="columns is-centered">
               <div class="column has-text-centered">
-                <h1 class="title is-1 publication-title">Patch-wise Retrieval: A Bag of Practical Techniques for Instance-level Matching</h1>
+                <h1 class="title is-1 publication-title">Patch-wise Retrieval: An Interpretable Instance-Level Image Matching</h1>
                 <div class="is-size-5 publication-authors">
                   <span class="author-block">Wonseok Choi<sup>1</sup></span>
                   <span class="author-block">Sohwi Lim<sup>2</sup></span>
@@ -39,10 +33,8 @@
                   <span class="author-block">POSTECH<sup>1</sup> &nbsp;&nbsp; KAIST<sup>2</sup> &nbsp;&nbsp; Samsung Research<sup>3</sup></span>
                 </div>
 
-                <!-- Presentation note -->
                 <div class="presentation-note">
-                  <span class="icon"><i class="fas fa-microphone"></i></span>
-                  <span>To be presented at <strong>WACV 2026</strong></span>
+                  <span>WACV 2026, Tucson AZ</span>
                 </div>
 
                 <div class="column has-text-centered">
@@ -54,45 +46,151 @@
                       </a>
                     </span>
                     <span class="link-block">
-                      <a href="#" class="external-link button is-normal is-rounded is-dark">
+                      <a href="https://www.youtube.com/watch?v=81v3FWe9zlo&t=5s" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon"><i class="fas fa-video"></i></span>
+                        <span>Video</span>
+                      </a>
+                    </span>
+                    <span class="link-block">
+                      <a href="https://github.com/kaist-ami/Patchwise-Retrieval" class="external-link button is-normal is-rounded is-dark">
                         <span class="icon"><i class="fab fa-github"></i></span>
                         <span>Code</span>
                       </a>
                     </span>
                   </div>
                 </div>
+
+                <p class="short-overview">
+                  Patch-wise Retrieval (Patchify) improves instance-level matching by comparing local patch features between query and database images, enabling interpretable retrieval with explicit spatial grounding while remaining efficient through product quantization.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Teaser image (placed above the Abstract) -->
-      <section class="hero teaser">
+      <section class="section poster-section" id="motivation">
         <div class="container is-max-desktop">
-          <div class="hero-body">
-            <figure class="image is-3by1">
-              <img src="/PatchwiseRetrieval/img/teaser.png" alt="Patch-wise Retrieval teaser" loading="lazy">
+          <h2 class="section-title">Motivation and Teaser</h2>
+          <div class="figure-card">
+            <a href="img/teaser.png" target="_blank" rel="noopener noreferrer">
+              <img src="img/teaser.png" alt="Teaser figure showing interpretability, performance, and scalability gains." loading="eager">
+            </a>
+            <p class="caption">
+              Patchify provides interpretable matching by localizing where retrieval evidence comes from, improves performance via local cues, and scales efficiently with product quantization.
+            </p>
+            <ul class="feature-list">
+              <li><strong>Interpretability:</strong> explicitly reveals where the match occurs.</li>
+              <li><strong>Performance:</strong> local representations provide stronger instance matching.</li>
+              <li><strong>Scalability:</strong> product quantization supports efficient large-scale retrieval.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section poster-section" id="method">
+        <div class="container is-max-desktop">
+          <h2 class="section-title">Method: Patchify</h2>
+          <div class="figure-card">
+            <a href="img/patchify.png" target="_blank" rel="noopener noreferrer">
+              <img src="img/patchify.png" alt="Patchify pipeline: patch extraction, encoding, product quantization, and similarity search." loading="lazy">
+            </a>
+            <ul class="feature-list">
+              <li>Each database image is split into structured multi-scale patches and encoded independently.</li>
+              <li>Retrieval compares query representation with patch representations and ranks by maximum similarity.</li>
+              <li>Patch-level indexing with product quantization keeps memory and retrieval latency practical.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section poster-section" id="prelim">
+        <div class="container is-max-desktop">
+          <h2 class="section-title">Preliminary Experiments</h2>
+          <div class="figure-grid two-col">
+            <figure class="figure-card">
+              <a href="img/distance_mAP.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/distance_mAP.png" alt="mAP by object distance from image center." loading="lazy">
+              </a>
+              <figcaption class="caption">mAP across distance bins from near-center to far-from-center objects.</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <a href="img/distance_LocScore.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/distance_LocScore.png" alt="LocScore by object distance from image center." loading="lazy">
+              </a>
+              <figcaption class="caption">LocScore across distance bins highlights improved localization robustness.</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <a href="img/area_coverage_mAP.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/area_coverage_mAP.png" alt="mAP by object size coverage bins." loading="lazy">
+              </a>
+              <figcaption class="caption">mAP by object size from smaller to larger object coverage bins.</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <a href="img/area_coverage_LocScore.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/area_coverage_LocScore.png" alt="LocScore by object size coverage bins." loading="lazy">
+              </a>
+              <figcaption class="caption">LocScore by object size confirms spatial consistency of local matching.</figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      <!-- Abstract -->
-      <section class="section hero is-light">
+      <section class="section poster-section" id="locscore">
         <div class="container is-max-desktop">
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-              <h2 class="title is-3">Abstract</h2>
-              <div class="content has-text-justified">
-                <p>Instance-level image retrieval aims to find images containing the same object as a given query, despite variations in size, position, or appearance. To address this challenging task, we propose Patchify, a simple yet effective patch-wise retrieval framework that offers high performance, scalability, and interpretability without requiring fine-tuning. Patchify divides each database image into a small number of structured patches and performs retrieval by comparing these local features with a global query descriptor, enabling accurate and spatially grounded matching. To assess not just retrieval accuracy but also spatial correctness, we introduce LocScore, a localization-aware metric that quantifies whether the retrieved region aligns with the target object. This makes LocScore a valuable diagnostic tool for understanding and improving retrieval behavior. We conduct extensive experiments across multiple benchmarks, backbones, and region selection strategies, showing that Patchify outperforms global methods and complements state-of-the-art reranking pipelines. Furthermore, we apply Product Quantization for efficient large-scale retrieval and highlight the importance of using informative features during compression, which significantly boosts performance.</p>
-              </div>
-            </div>
+          <h2 class="section-title">LocScore: Localization-Aware Metric</h2>
+          <div class="text-card">
+            <p><strong>Continuous LocScore:</strong> weighted overlap between predicted patch regions and ground-truth target regions over the ranked retrieval list.</p>
+            <p><strong>Discrete LocScore(&delta;):</strong> ratio of true positives whose IoU is above a threshold &delta;, enabling controllable localization strictness.</p>
+            <p>LocScore complements mAP by evaluating whether retrieved results are not only correct, but also spatially grounded on the target object.</p>
           </div>
         </div>
       </section>
 
-      <!-- BibTeX -->
+      <section class="section poster-section" id="results">
+        <div class="container is-max-desktop">
+          <h2 class="section-title">Experimental Results</h2>
+          <div class="figure-grid two-col">
+            <figure class="figure-card">
+              <a href="img/comparison_locscore_thr2.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/comparison_locscore_thr2.png" alt="Comparison with localization boxes and LocScore thresholding." loading="lazy">
+              </a>
+              <figcaption class="caption">Patchify improves local evidence alignment under localization-aware evaluation.</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <a href="img/memory.png" target="_blank" rel="noopener noreferrer">
+                <img src="img/memory.png" alt="Memory usage comparison among baseline and Patchify variants." loading="lazy">
+              </a>
+              <figcaption class="caption">Patchify reaches stronger retrieval quality with lower memory overhead.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section poster-section" id="qualitative">
+        <div class="container is-max-desktop">
+          <h2 class="section-title">Qualitative Results</h2>
+          <div class="figure-card">
+            <a href="img/comparison_locscore_thr2.png" target="_blank" rel="noopener noreferrer">
+              <img src="img/comparison_locscore_thr2.png" alt="Query-to-retrieval qualitative examples with localized patches." loading="lazy">
+            </a>
+            <p class="caption">Representative examples show that Patchify retrieves semantically and spatially consistent matches compared to global baselines.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section poster-section" id="takeaways">
+        <div class="container is-max-desktop">
+          <h2 class="section-title">Takeaways</h2>
+          <div class="text-card">
+            <ul class="feature-list">
+              <li>Interpretable instance retrieval with built-in spatial localization.</li>
+              <li>Strong performance and scalability from a simple, training-free design.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="bibtex">
         <div class="container is-max-desktop content">
           <div class="bibtex-header">
