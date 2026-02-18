@@ -77,9 +77,23 @@ body {
 
 .results-columns {
   display: grid;
-  grid-template-columns: 1.45fr 0.9fr;
+  grid-template-columns: 1.75fr 0.75fr;
   gap: 14px;
   align-items: start;
+}
+
+.result-column {
+  min-width: 0;
+}
+
+.sota-figure img {
+  width: 100%;
+}
+
+.memory-figure {
+  max-width: 78%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .takeaways-grid {
@@ -122,10 +136,15 @@ body {
 .feature-list {
   margin-top: 10px;
   padding-left: 1.2rem;
+  list-style: disc outside;
 }
 
 .feature-list li {
   margin-bottom: 0.45rem;
+}
+
+.feature-list li::marker {
+  color: var(--accent);
 }
 
 .bibtex-header {
