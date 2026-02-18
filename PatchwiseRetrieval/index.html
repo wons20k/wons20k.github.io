@@ -124,10 +124,6 @@
             <a href="img/LocScore.png" target="_blank" rel="noopener noreferrer">
               <img src="img/LocScore.png" alt="LocScore definitions for continuous and discrete localization-aware retrieval metrics." loading="lazy">
             </a>
-            <ul class="feature-list">
-              <li>Continuous LocScore measures retrieval quality together with spatial awareness via IoU.</li>
-              <li>Discrete LocScore adds user controllability through thresholded localization quality.</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -135,36 +131,32 @@
       <section class="section poster-section" id="results">
         <div class="container is-max-desktop">
           <h2 class="section-title">Experimental Results</h2>
-          <h3 class="subsection-title">Comparison with SOTA Methods</h3>
-          <div class="figure-grid two-col">
-            <figure class="figure-card">
-              <a href="img/sota_global.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/sota_global.png" alt="Comparison table showing Patchify gains over global baselines on INSTRE and ILIAS." loading="lazy">
-              </a>
-              <figcaption class="caption">Patchify improves mAP and LocScore over global retrieval baselines on INSTRE and ILIAS.</figcaption>
-            </figure>
-            <figure class="figure-card">
-              <a href="img/sota_reranking.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/sota_reranking.png" alt="Comparison table showing Patchify-enhanced performance in reranking pipelines." loading="lazy">
-              </a>
-              <figcaption class="caption">Patchify is effective as both a standalone approach and a strong first-stage representation for reranking.</figcaption>
-            </figure>
-          </div>
-
-          <h3 class="subsection-title">Memory Efficiency</h3>
-          <div class="figure-grid two-col">
-            <figure class="figure-card">
-              <a href="img/memory.png" target="_blank" rel="noopener noreferrer">
-                <img src="img/memory.png" alt="Memory usage comparison among baseline and Patchify variants." loading="lazy">
-              </a>
-              <figcaption class="caption">Patchify reaches stronger retrieval quality with lower memory overhead.</figcaption>
-            </figure>
-            <div class="text-card">
-              <ul class="feature-list">
-                <li>Patchify uses a small fixed set of structured patches rather than hundreds of dense local descriptors.</li>
-                <li>Compared with reranking pipelines, Patchify provides substantially better memory scalability.</li>
-                <li>This makes Patchify practical for large-scale retrieval while retaining strong retrieval performance.</li>
-              </ul>
+          <div class="results-columns">
+            <div class="result-column">
+              <h3 class="subsection-title">Comparison with SOTA Methods</h3>
+              <div class="figure-grid">
+                <figure class="figure-card">
+                  <a href="img/sota_global.png" target="_blank" rel="noopener noreferrer">
+                    <img src="img/sota_global.png" alt="Comparison table showing Patchify gains over global baselines on INSTRE and ILIAS." loading="lazy">
+                  </a>
+                  <figcaption class="caption">Patchify improves mAP and LocScore over global retrieval baselines on INSTRE and ILIAS.</figcaption>
+                </figure>
+                <figure class="figure-card">
+                  <a href="img/sota_reranking.png" target="_blank" rel="noopener noreferrer">
+                    <img src="img/sota_reranking.png" alt="Comparison table showing Patchify-enhanced performance in reranking pipelines." loading="lazy">
+                  </a>
+                  <figcaption class="caption">Patchify is effective as both a standalone approach and a strong first-stage representation for reranking.</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="result-column">
+              <h3 class="subsection-title">Memory Efficiency</h3>
+              <figure class="figure-card">
+                <a href="img/memory.png" target="_blank" rel="noopener noreferrer">
+                  <img src="img/memory.png" alt="Memory usage comparison among baseline and Patchify variants." loading="lazy">
+                </a>
+                <figcaption class="caption">Patchify reaches stronger retrieval quality with lower memory overhead.</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -174,10 +166,10 @@
         <div class="container is-max-desktop">
           <h2 class="section-title">Qualitative Results</h2>
           <div class="figure-card">
-            <a href="img/comparison_locscore_thr2.png" target="_blank" rel="noopener noreferrer">
-              <img src="img/comparison_locscore_thr2.png" alt="Query-to-retrieval qualitative examples with localized patches." loading="lazy">
+            <a href="img/qualitative_results.png" target="_blank" rel="noopener noreferrer">
+              <img src="img/qualitative_results.png" alt="Qualitative retrieval examples showing robust matching for small and off-centered objects." loading="lazy">
             </a>
-            <p class="caption">Representative examples show that Patchify retrieves semantically and spatially consistent matches compared to global baselines.</p>
+            <p class="caption">Patchify retrieves correct instances even when targets are small or off-centered and clearly indicates which regions trigger the match.</p>
           </div>
         </div>
       </section>
@@ -187,8 +179,9 @@
           <h2 class="section-title">Takeaways</h2>
           <div class="text-card">
             <ul class="feature-list">
-              <li>Interpretable instance retrieval with built-in spatial localization.</li>
-              <li>Strong performance and scalability from a simple, training-free design.</li>
+              <li><strong>Patchify:</strong> an interpretable, spatially grounded retrieval framework that works in a training-free, plug-and-play manner.</li>
+              <li><strong>Patchify:</strong> scalable retrieval with low memory overhead while preserving strong matching quality.</li>
+              <li><strong>LocScore:</strong> a localization-aware evaluation metric that complements ranking-only retrieval metrics.</li>
             </ul>
           </div>
         </div>

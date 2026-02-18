@@ -75,6 +75,13 @@ body {
   color: #2b2b2b;
 }
 
+.results-columns {
+  display: grid;
+  grid-template-columns: 1.45fr 0.9fr;
+  gap: 14px;
+  align-items: start;
+}
+
 .figure-card,
 .text-card {
   background: #fff;
@@ -143,6 +150,10 @@ button:focus {
 
 @media (max-width: 900px) {
   .figure-grid.two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .results-columns {
     grid-template-columns: 1fr;
   }
 
