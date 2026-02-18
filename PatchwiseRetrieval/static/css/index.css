@@ -78,7 +78,7 @@ body {
 .results-columns {
   display: grid;
   grid-template-columns: 1.75fr 0.75fr;
-  gap: 8px;
+  gap: 6px;
   align-items: stretch;
 }
 
@@ -88,12 +88,11 @@ body {
   flex-direction: column;
 }
 
-.result-column .figure-grid {
+.result-column > .figure-card {
   flex: 1;
-}
-
-.result-column .figure-grid .figure-card {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .sota-figure img {
@@ -101,10 +100,8 @@ body {
 }
 
 .memory-figure {
-  flex: 1;
   max-width: 100%;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
 .memory-figure a {
