@@ -231,3 +231,118 @@ span.highlight {
   .colored-box { display: block; width: auto; }
   .papertitle { display: block; font-size: 15px; margin-bottom: 6px; }
 }
+
+/* Personal homepage layout (sidebar + content), inspired by academic template style */
+body {
+  margin: 0;
+  background: #fff;
+  color: #222;
+}
+
+.academic-page {
+  max-width: 1080px;
+  margin: 44px auto;
+  padding: 0 24px 40px 24px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.sidebar-panel {
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.sidebar-name {
+  margin: 0 0 6px 0;
+  font-size: 30px;
+  line-height: 1.1;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+}
+
+.sidebar-role,
+.sidebar-affil {
+  margin: 0 0 6px 0;
+  color: #555;
+}
+
+.sidebar-links {
+  margin: 10px 0 20px 0;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.side-nav a {
+  color: #333;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.main-panel {
+  min-width: 0;
+}
+
+.section-block {
+  margin-bottom: 30px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ececec;
+}
+
+.section-block:last-child {
+  border-bottom: 0;
+}
+
+.section-block h2 {
+  margin: 0 0 12px 0;
+  font-size: 23px;
+}
+
+.section-block p {
+  margin: 0 0 10px 0;
+  line-height: 1.6;
+}
+
+.section-block ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.section-block li {
+  margin: 0 0 10px 0;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .academic-page {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 24px auto;
+  }
+
+  .sidebar-panel {
+    position: static;
+  }
+
+  .sidebar-photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .sidebar-name {
+    font-size: 28px;
+  }
+}
